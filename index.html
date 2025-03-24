@@ -227,6 +227,61 @@
             }
         }
 
+        /* Popular Courses Section */
+        .courses-section {
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .courses-heading {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: #212529;
+        }
+        
+        .category-container {
+            background-color: #e9f5ff;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            width: 100%;
+        }
+        
+        .category-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 65px;
+        }
+        
+        .category-btn {
+            padding: 10px 20px;
+            border-radius: 50px;
+            background-color: transparent;
+            color: #0d6efd;
+            border: 1px solid #0d6efd;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .category-btn:hover, .category-btn.active {
+            background-color: #0d6efd;
+            color: white;
+        }
+        
+        @media (max-width: 767.98px) {
+            .category-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .category-btn {
+                width: 80%;
+            }
+        }
+
         /* Footer Styles */
         .footer {
             background-color: #f8f9fa;
@@ -250,7 +305,7 @@
         }
 
         .footer-link:hover {
-            color: #FF6B00;
+            color: #3300ff;
         }
 
         .footer-about {
@@ -510,6 +565,23 @@
                 </div>
             </div>
         </section>
+        
+        <!-- Popular Courses Section -->
+        <section class="courses-section">
+            <div class="container">
+                <h2 class="courses-heading">Most Popular Courses</h2>
+                <p style="color: #6c757d;">Choose from hundreds of courses from specialist organizations</p>
+                <div class="category-container">
+                    <div class="category-buttons">
+                        <button class="category-btn active">Web Design</button>
+                        <button class="category-btn">Development</button>
+                        <button class="category-btn">Graphic Design</button>
+                        <button class="category-btn">Marketing</button>
+                        <button class="category-btn">Finance</button>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
@@ -598,13 +670,14 @@
             <!-- Footer Bottom -->
             <div class="row footer-bottom">
                 <div class="col-md-6 text-center text-md-start">
-                    <p class="mb-2 mb-md-0">© 2023 Eduport. All rights reserved.</p>
+                    <p class="mb-2 mb-md-0">copyrights© 2023 Eduport. made by webestica.</p>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <ul class="list-inline mb-0">
-                        <li class="list-inline-item"><a href="#" class="footer-link">Terms of Service</a></li>
+                        <li class="list-inline-item"><a href="#" class="footer-link">Language</a></li>
+                        <li class="list-inline-item"><a href="#" class="footer-link">terms of use</a></li>
                         <li class="list-inline-item"><a href="#" class="footer-link">Privacy Policy</a></li>
-                        <li class="list-inline-item"><a href="#" class="footer-link">Cookie Notice</a></li>
+                        
                     </ul>
                 </div>
             </div>
@@ -646,6 +719,17 @@
             const dropdownMenus = document.querySelectorAll('.dropdown-menu');
             dropdownMenus.forEach(menu => {
                 menu.classList.add('animate__animated', 'animate__fadeIn');
+            });
+            
+            // Category buttons functionality
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                });
             });
         });
     </script>
